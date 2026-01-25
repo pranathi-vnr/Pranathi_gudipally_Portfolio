@@ -76,10 +76,13 @@ body {
 .header ul li:first-child {
   margin-right: auto;
 }
-.header ul {
-  display: flex;
-  align-items: center;
+@media (min-width: 768px) {
+  .header ul {
+    display: flex;
+    align-items: center;
+  }
 }
+
 .header ul li {
   margin: 0 15px;
 }
@@ -92,23 +95,44 @@ body {
   color: #fed700;
 }
 
-.header .menu_icon {
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
+/* Hamburger base */
+.menu_icon {
+  width: 30px;
+  height: 22px;
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
-/* Desktop: horizontal menu */
-.navbar {
-  display: flex; /* horizontal links */
-  flex-direction: row;
-  gap: 20px; /* spacing between links */
-  position: static;
-  background: none;
-  padding: 0;
-  margin: 0;
+/* Lines */
+.menu_icon span {
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
 }
+
+/* Mobile only */
+@media (max-width: 767px) {
+  .menu_icon {
+    display: flex;
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    z-index: 1001;
+  }
+}
+
+
+/* Desktop: horizontal menu */
+@media (min-width: 768px) {
+  .navbar {
+    display: flex;
+    gap: 20px;
+  }
+}
+
 
 /* Navbar links */
 .navbar li a {
@@ -121,25 +145,24 @@ body {
 /* Mobile: vertical menu */
 @media (max-width: 767px) {
   .navbar {
-    display: none;           /* hide by default */
-    flex-direction: column;  /* vertical links */
-    position: absolute;
-    top: 70px; 
-    right: 15px;
-    width: 200px;            /* fixed width */
-    background-color: #202020;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 220px;
+    background: #202020;
     padding: 20px;
     border-radius: 10px;
-    text-align: center;       /* center links */
-    z-index: 999;
+    text-align: center;
   }
 
   .navbar.show {
-    display: flex;  /* shown when hamburger clicked */
+     display: flex; 
   }
 
   .navbar li {
-    margin: 10px 0;   /* spacing between links */
+    margin: 1px 0;   /* spacing between links */
   }
 
   .navbar li a {
@@ -147,13 +170,6 @@ body {
   }
   .header ul li:first-child {
     margin-right: 13px; /* reset margin on mobile */
-  }
-   .header .menu_icon {
-    display: block;
-    position: fixed; 
-    top: 25px;
-    right: 20px;
-    z-index: 1001;
   }
 }
 
@@ -496,12 +512,6 @@ body {
   .container {
     width: 95%;
     padding: 0 10px;
-  }
-  .header .menu_icon {
-    display: block;
-  }
-  .header ul {
-    display: none;
   }
   .profile-text {
     width: 100%;
