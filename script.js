@@ -109,6 +109,20 @@ $(document).ready(function() {
       }
     });
   }
+// Hamburger menu toggle
+const menuIcon = document.querySelector('.menu_icon');
+const navMenu = document.querySelector('.navbar');
+
+menuIcon.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+document.querySelectorAll('.navbar li a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('show');
+  });
+});
+
   
 
  
