@@ -148,6 +148,13 @@ body {
   .header ul li:first-child {
     margin-right: 13px; /* reset margin on mobile */
   }
+   .header .menu_icon {
+    display: block;
+    position: fixed; 
+    top: 25px;
+    right: 20px;
+    z-index: 1001;
+  }
 }
 
 /*---------------------------HomePage---------------------------*/
